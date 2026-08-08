@@ -1,0 +1,10 @@
+[
+    {
+        "transaction_id": "T0001",
+        "book_id": " B001",
+        "member_id": " M001",
+        "issue_date": "2026-08-08 13:30:26",
+        "return_date": "",
+        "status": "Issued"
+    }
+]

@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-title">
+
+    <h1>
+        Issue & Return Records
+    </h1>
+
+</div>
+
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Transaction ID</th>
+
+<th>Book ID</th>
+
+<th>Member ID</th>
+
+<th>Issue Date</th>
+
+<th>Return Date</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+{% for t in transactions %}
+
+<tr>
+
+<td>
+    {{ t.transaction_id }}
+</td>
+
+<td>
+    {{ t.book_id }}
+</td>
+
+<td>
+    {{ t.member_id }}
+</td>
+
+<td>
+    {{ t.issue_date }}
+</td>
+
+<td>
+    {{ t.return_date or "-" }}
+</td>
+
+<td>
+
+{% if t.status == "Issued" %}
+
+<span class="issued">
+    Issued
+</span>
+
+{% else %}
+
+<span class="available">
+    Returned
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+{% if t.status == "Issued" %}
+
+<a
+    class="return"
+    href="/return/{{ t.book_id }}"
+>
+Return
+</a>
+
+{% else %}
+
+Completed
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

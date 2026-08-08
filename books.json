@@ -1,0 +1,10 @@
+[
+    {
+        "book_id": " B001",
+        "title": "Python Programming",
+        "author": "John Smith",
+        "isbn": "9781234567890",
+        "category": "Programming",
+        "available": false
+    }
+]

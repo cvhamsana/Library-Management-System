@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-title">
+
+    <h1>Member Management</h1>
+
+</div>
+
+
+<div class="form-box">
+
+    <h2>Add Member</h2>
+
+    <form method="POST" action="/add-member">
+
+        <input
+            name="member_id"
+            placeholder="Member ID"
+            required
+        >
+
+        <input
+            name="name"
+            placeholder="Full Name"
+            required
+        >
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+        >
+
+        <input
+            name="phone"
+            placeholder="Phone Number"
+            required
+        >
+
+        <button class="button">
+            Add Member
+        </button>
+
+    </form>
+
+</div>
+
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Phone</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+{% for member in members %}
+
+<tr>
+
+<td>
+    {{ member.member_id }}
+</td>
+
+<td>
+    {{ member.name }}
+</td>
+
+<td>
+    {{ member.email }}
+</td>
+
+<td>
+    {{ member.phone }}
+</td>
+
+<td>
+
+<a
+    class="delete"
+    href="/delete-member/{{ member.member_id }}"
+    onclick="return confirmDelete()"
+>
+Delete
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

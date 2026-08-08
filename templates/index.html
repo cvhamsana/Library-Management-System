@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div>
+
+        <h1>
+            Library Management System
+        </h1>
+
+        <p>
+            Manage books, members and
+            issue-return records easily.
+        </p>
+
+        <a
+            href="/books"
+            class="button"
+        >
+            Manage Books
+        </a>
+
+    </div>
+
+    <div class="hero-icon">
+        📚
+    </div>
+
+</section>
+
+
+<div class="cards">
+
+    <div class="card">
+
+        <div class="icon">
+            📚
+        </div>
+
+        <h3>Total Books</h3>
+
+        <h2>
+            {{ total_books }}
+        </h2>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="icon green">
+            ✓
+        </div>
+
+        <h3>Available Books</h3>
+
+        <h2>
+            {{ available_books }}
+        </h2>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="icon orange">
+            📤
+        </div>
+
+        <h3>Issued Books</h3>
+
+        <h2>
+            {{ issued_books }}
+        </h2>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="icon blue">
+            👥
+        </div>
+
+        <h3>Members</h3>
+
+        <h2>
+            {{ total_members }}
+        </h2>
+
+    </div>
+
+</div>
+
+
+<div class="quick">
+
+    <h2>
+        Quick Actions
+    </h2>
+
+    <div class="quick-grid">
+
+        <a href="/books">
+            📚
+            <span>Manage Books</span>
+        </a>
+
+        <a href="/members">
+            👥
+            <span>Manage Members</span>
+        </a>
+
+        <a href="/issue">
+            📤
+            <span>Issue Book</span>
+        </a>
+
+        <a href="/transactions">
+            🔄
+            <span>Transactions</span>
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

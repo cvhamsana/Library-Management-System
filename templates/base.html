@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Library Management System</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        📚 LibraFlow
+    </div>
+
+    <nav>
+
+        <a href="/">Dashboard</a>
+
+        <a href="/books">
+            Books
+        </a>
+
+        <a href="/members">
+            Members
+        </a>
+
+        <a href="/issue">
+            Issue Book
+        </a>
+
+        <a href="/transactions">
+            Transactions
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    {% with messages =
+        get_flashed_messages(
+            with_categories=true
+        )
+    %}
+
+        {% for category, message in messages %}
+
+            <div class="alert {{ category }}">
+
+                {{ message }}
+
+            </div>
+
+        {% endfor %}
+
+    {% endwith %}
+
+
+    {% block content %}
+
+    {% endblock %}
+
+</main>
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}"
+></script>
+
+</body>
+
+</html>
